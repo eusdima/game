@@ -1,0 +1,170 @@
+<html>
+<style>
+	body
+	{
+		margin:0px;
+	}
+	canvas {
+		image-rendering: optimizeSpeed;             /* Older versions of FF          */
+		image-rendering: -moz-crisp-edges;          /* FF 6.0+                       */
+		image-rendering: -webkit-optimize-contrast; /* Safari                        */
+		image-rendering: -o-crisp-edges;            /* OS X & Windows Opera (12.02+) */
+		image-rendering: pixelated;                 /* Awesome future-browsers       */
+		-ms-interpolation-mode: nearest-neighbor;   /* IE                            */
+		border:1px solid red;
+	}
+
+	.notification
+	{
+		position:fixed;
+		bottom:5px;
+		right:5px;
+		color:gray;
+	}
+	.notification-icon
+	{
+		font-size:60px !important;
+	}
+	.notification-count
+	{
+		padding:4px;
+		text-align: center;
+		background-color: #106BEA;
+		border:2px solid white;
+		position:fixed;
+		padding:2px;
+		width:30px;
+		font-weight:bold;
+		right:10px;
+		color:white;
+		border-radius:7px;
+	}
+	.notification-panel
+	{
+		position:fixed;
+		right:15px;
+		bottom:100px;
+
+		width:20%;
+
+	}
+	.notification-msg
+	{
+		background-color: #3287FF;
+		color:white;
+		font-size:20px;
+		padding:5px 10px 5px 10px;
+		margin-bottom:10px;
+		border-radius:4px;
+		font-family: 'Lato', sans-serif;
+		border-left:5px solid #106BEA;
+	}
+	.gameover
+	{
+		width:100%;
+		height:100%;
+		position:fixed;
+		left:0px;
+		top:0px;
+	}
+	.gameover p
+	{
+		font-size:40px;
+	}
+	.gameover .box
+	{
+		background-color:gray;
+		width:20%;
+		margin-left:auto;
+		margin-right:auto;
+		margin-top:20%;
+	}
+	.game-info
+	{
+		width:300px;
+		
+		position: fixed;
+		top:3%;
+		right:10px;
+		border:1px solid #FD4848;
+		padding-left:10px;
+		border-left:10px solid #FD4848;
+		border-radius:5px;
+		opacity:0.3;
+
+	}
+	.game-info:hover
+	{
+		opacity:1;
+		right:20px;
+	}
+	tr:nth-of-type(odd) td
+	{
+		background-color: #FD4848;
+		color:white;
+		font-weight: 800;
+	}
+	tr:nth-of-type(even) td
+	{
+		background-color: white;
+		color:#FD4848;
+		font-weight: 800;
+	}
+</style>
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
+	<link href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<center><canvas id="snake" width="100" height="100" ></canvas>
+		<div class="gameover" style="display:none;">
+
+			<div class="row" style="margin-top:20%;">
+				<div class="col s12 m4 offset-m4">
+					<div class="card red darken-1">
+						<div class="card-content white-text">
+
+							<p>Game Over</p>
+						</div>
+						<div class="card-action">
+							<a class="waves-effect waves-light white btn red-text">Keep watching</a>	
+							<a class="waves-effect waves-light white btn red-text respawn">Respawn</a>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</center>
+	<div class="notification"><div class="notification-count">0</div><i class="material-icons notification-icon">notifications</i></div>
+	<div class="notification-panel">
+	</div>
+		<div class="game-info">
+	      <table class="striped">
+	        <thead>
+	          <tr>
+	            <b><h5><center>Game Info</center></h5></b>
+	            
+	          </tr>
+	        </thead>
+
+	        <tbody>
+	          <tr>
+	            <td>Score</td>
+	            <td class="score-value">5</td>
+	          </tr>
+	          <tr>
+	            <td>Lives</td>
+	            <td class="lives-value">5</td>
+	          </tr>
+	          
+	        </tbody>
+	      </table>
+        </div>
+</body>
+<script src="game.js"></script>
+</html>

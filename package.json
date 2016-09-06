@@ -1,0 +1,21 @@
+{
+  "name": "game",
+  "version": "2.0.0",
+  "description": "beta",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "snake"
+  ],
+  "author": "Eus",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "firebase": "^2.4.2",
+    "nodejs": "0.0.0",
+    "nodemon": "^1.9.1",
+    "socketio": "^1.0.0"
+  }
+}
