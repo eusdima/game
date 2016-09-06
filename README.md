@@ -1,3 +1,4 @@
+# Snake multiplayer
 ## How to install
 ```
  npm install
